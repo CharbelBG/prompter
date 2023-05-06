@@ -14,7 +14,6 @@ const UserSchema = new Schema({
     image:String,
 });
 
-
 //since this code will be called each time(lambda functions) we need to check before we create..
 const User = models.User || model("User", UserSchema);
 

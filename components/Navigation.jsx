@@ -10,19 +10,19 @@ import styles from '../styles/navigation.module.css';
 export default function Navigation(){
 
     const {data:session} = useSession();
-    const isUserLoggedIn = true;
-    const [providers, setProviders] = useState(null);
 
+    const [providers, setProviders] = useState(null);
     // to sign in with 0auth or google
     useEffect(()=>{
         fetchProviders();
     },[]);
-
+ 
     async function fetchProviders(){
         let response = await getProviders();
         setProviders(response);
+        console.log(response);
     }
-
+    
 return(
 <nav className={styles.navigation}>
     <div>
@@ -37,16 +37,16 @@ return(
         </Link>
         <button type='button' onClick={signOut}>Sign Out</button>
         
-        <Image src='/assets/images/logo.svg' alt='profile' height={30} width={40} className={styles.profile} />
+        <Image src={session?.user.image} alt='profile' 
+        height={30} width={40} className={styles.profile} />
         </div>
     : 
         <div className={styles.headerBtns}>
-        {providers ? Object.values(providers).map((provider)=>{
-        <button type='button' key={provider.name} onClick={()=> signIn(provider.id)}>
+        {providers && Object.values(providers).map((provider)=>{
+        return <button type='button' key={provider.name} onClick={()=> signIn(provider.id)}>
             Sign In
         </button> 
-        }) : ''} 
-    
+        })}
     </div >
     }
 </nav>
