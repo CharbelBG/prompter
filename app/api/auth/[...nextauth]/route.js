@@ -17,7 +17,7 @@ const handler = NextAuth({
             return session;
         },
         async signIn({profile}){
-            //each route is a serverless route, meaning it is a lambda funcntion, 
+            //each route is a serverless route, meaning it is a lambda funcntion
             try{
                 await connectToDB();
               
@@ -27,7 +27,7 @@ const handler = NextAuth({
                 if(!userExists){
                     await User.create({
                     email: profile.email,
-                    username:profile.name.replaceAll(" ","").toLowerCase(),    
+                    username:profile.name.replaceAll(" ","").toLowerCase(),
                     image:profile.picture,
                     })
                 }

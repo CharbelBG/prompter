@@ -20,7 +20,6 @@ export default function Navigation(){
     async function fetchProviders(){
         let response = await getProviders();
         setProviders(response);
-        console.log(response);
     }
  
 return(
