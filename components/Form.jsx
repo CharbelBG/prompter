@@ -14,18 +14,20 @@ return(
     <form handleSubmit={handleSubmit}>
         <span>Your AI Prompt</span>
         <textarea 
-            cols="30" rows="10" value={post.prompt} required 
+            cols="30" rows="5" value={post.prompt} required 
             placeholder="Proompt the AI here..."
             onChange={(e)=>setPost({...post, prompt:e.target.value})}>
         </textarea>
 
         <span>Your tag</span>
         <textarea 
-            cols="30" rows="10" value={post.prompt} required 
+            cols="30" rows="2" value={post.tag} required 
             placeholder="Proompt the AI here..."
-            onChange={(e)=>setPost({...post, prompt:e.target.value})}>
+            onChange={(e)=>setPost({...post, tag:e.target.value})}>
         </textarea>
-
+        <Link href='/' className={styles.cancel}>
+        Cancel
+        </Link>
     </form>    
 
 </section>
