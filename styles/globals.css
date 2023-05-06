@@ -2,9 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: monospace;
+    font-family: 'msans';
 }
-
+@font-face {
+    font-family: msans;
+    src: url(../fonts/ModernSansSerif7.ttf);
+}
 .gradient {
     height: fit-content;
     z-index: 3;
@@ -31,8 +34,7 @@
 
 .header{
     text-align: center;
-    font-family: monospace;
-    font-size: 2rem;
+    font-size: 2rem; 
 }
 
 
