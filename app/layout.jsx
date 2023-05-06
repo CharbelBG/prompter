@@ -1,5 +1,7 @@
 import { React} from 'react';
 import "@styles/globals.css";
+import Navigation from '@components/Navigation';
+import Provider from '@components/Provider';
 
 export const metadata = {
     title: "prompt",
@@ -16,7 +18,7 @@ return(
     <body>
         <div className='main'>
             <div className='gradient' />
-            
+            <Navigation />
             <main className='app'>
                 {children}
             </main>
