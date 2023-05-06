@@ -8,23 +8,21 @@ export const metadata = {
     description: "Discover & Share AI prompts"
 }
 
-
-
-//The layout will be wrapped around everything in the app.
 export default function RootLayout({children}){
 
 return(
 <html lang='en'>
-    <body>
-        <div className='main'>
-            <div className='gradient' />
-            <Navigation />
-            <main className='app'>
-                {children}
-            </main>
-
-        </div>
-    </body>
+<body>
+    <Provider>
+    <div className='main'>
+        <div className='gradient' />
+        <Navigation />
+        <main className='app'>
+            {children}
+        </main>
+    </div>
+    </Provider>
+</body>
 </html>
 )
 }

@@ -7,10 +7,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/navigation.module.css';
 
-const isUserLoggedIn = true;
-
-
 export default function Navigation(){
+
+    const isUserLoggedIn = true;
+    const [providers, setProviders] = useState(null);
+
+    // to sign in with 0auth or google
+    useEffect(()=>{
+        fetchProviders();
+    },[]);
+
+    async function fetchProviders(){
+        let response = await getProviders();
+        setProviders(response);
+    }
+
 return(
 <nav className={styles.navigation}>
     <div>
@@ -18,17 +29,25 @@ return(
         <p>PROOMPTER</p>
     </div>
      
-    {isUserLoggedIn ? 
-    <div className={styles.headerBtns}>
-    <Link href="/">
-        Create Post
-    </Link>
-    <button type='button' onClick={signOut}>Sign Out</button>
-    {/* we can load here the user image from google sign in */}
-    <Image src='/assets/images/logo.svg' alt='profile' height={30} width={40} className={styles.profile} />
-    </div> : <div className={styles.headerBtns}>
-            <button onClick={signIn}>Sign In</button>
-    </div> }
+    {isUserLoggedIn ?
+        <div className={styles.headerBtns}>
+        <Link href="/">
+            Create Post
+        </Link>
+        <button type='button' onClick={signOut}>Sign Out</button>
+        
+        <Image src='/assets/images/logo.svg' alt='profile' height={30} width={40} className={styles.profile} />
+        </div>
+    : 
+        <div className={styles.headerBtns}>
+        {providers ? Object.values(providers).map((provider)=>{
+        <button type='button' key={provider.name} onClick={()=> signIn(provider.id)}>
+            Sign In
+        </button> 
+        }) : ''} 
+    
+    </div >
+    }
 </nav>
 )
 }
