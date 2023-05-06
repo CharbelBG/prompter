@@ -9,6 +9,7 @@ import styles from '../styles/navigation.module.css';
 
 export default function Navigation(){
 
+    const {data:session} = useSession();
     const isUserLoggedIn = true;
     const [providers, setProviders] = useState(null);
 
@@ -29,7 +30,7 @@ return(
         <p>PROOMPTER</p>
     </div>
      
-    {isUserLoggedIn ?
+    {session?.user ?
         <div className={styles.headerBtns}>
         <Link href="/">
             Create Post
