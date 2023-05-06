@@ -22,7 +22,7 @@ export default function Navigation(){
         setProviders(response);
         console.log(response);
     }
-    
+ 
 return(
 <nav className={styles.navigation}>
     <div>
