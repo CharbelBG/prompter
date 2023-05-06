@@ -10,7 +10,7 @@
 }
 .gradient {
     height: fit-content;
-    z-index: 3;
+    z-index: -1;
     width: 100%;
     background-image: radial-gradient(
         at 27% 37%,

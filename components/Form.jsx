@@ -13,11 +13,19 @@ return(
     </p>
     <form handleSubmit={handleSubmit}>
         <span>Your AI Prompt</span>
-        <textarea cols="30" rows="10" value={post.prompt} 
-        placeholder="Proompt the AI here..."
-        onChange={(e)=>setPost({...post, prompt:e.target.value})}>
-
+        <textarea 
+            cols="30" rows="10" value={post.prompt} required 
+            placeholder="Proompt the AI here..."
+            onChange={(e)=>setPost({...post, prompt:e.target.value})}>
         </textarea>
+
+        <span>Your tag</span>
+        <textarea 
+            cols="30" rows="10" value={post.prompt} required 
+            placeholder="Proompt the AI here..."
+            onChange={(e)=>setPost({...post, prompt:e.target.value})}>
+        </textarea>
+
     </form>    
 
 </section>
