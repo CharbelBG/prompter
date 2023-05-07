@@ -31,7 +31,7 @@ return(
      
     {session?.user ?
         <div className={styles.headerBtns}>
-        <Link href="/">
+        <Link href="/create-prompt">
             Create Post
         </Link>
         <button type='button' onClick={signOut}>Sign Out</button>

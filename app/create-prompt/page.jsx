@@ -35,7 +35,6 @@ export default function createPrompt(){
         }catch(e){
             console.log(e);
         }
-        
     }
 
 return(

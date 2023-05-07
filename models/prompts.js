@@ -2,7 +2,7 @@ import {Schema, model, models} from "mongoose";
 
 //each prompt must have a user, we can do it by calling the use model.
 const PromptSchema = new Schema({
-    create:{
+    creator:{
         type:Schema.Types.ObjectId,
         ref:'User',
     },
