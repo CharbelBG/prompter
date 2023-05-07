@@ -16,7 +16,18 @@ export default function createPrompt(){
 
 
     async function createPrompt(e){
-        console.log(e);
+        e.preventDefault();
+        setSubmitting(true);
+        
+        try{
+            const response = await fetch('/api/prompt/new',{
+                
+            });
+
+        }catch(e){
+            console.log(e);
+        }
+        
     }
 
 return(

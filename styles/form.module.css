@@ -22,11 +22,15 @@
 .form p{
     font-size: 1.5rem;
 }
-.form textarea{
+.form textarea, .form input{
     padding: .5rem;
     width: 90%;
     background-color: rgba(128, 128, 128, 0.565);
     font-size: 1.5rem;
+}
+.form input{
+    border: 1px solid black;
+    
 }
 .cancel{
     text-decoration: none;
@@ -40,5 +44,20 @@
 .cancel:hover{
     border-radius: 1.5rem;
     background-color: rgba(255, 0, 0, .5);
+    transition: .2s;
+}
+.submit{
+    border: none;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    background-color: rgba(81, 255, 0, 0.2);
+    color: black;
+    transition: .2s;
+    cursor: pointer;
+}
+.submit:hover{
+    border-radius: 1.5rem;
+    background-color: rgba(81, 255, 0, 0.5);
     transition: .2s;
 }

@@ -9,9 +9,10 @@ return(
     
     <h1 className='blueColor'>{type} Post</h1>
     <p>
-        {type} and share amazing propmpts wiht the world, and let you imagination run wild with any AI-powerred platform
+        {type} and share amazing prompts with the world, and let your
+        imagination run wild with any AI-powerred platform
     </p>
-    <form handleSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <span>Your AI Prompt</span>
         <textarea 
             cols="30" rows="5" value={post.prompt} required 
@@ -20,15 +21,17 @@ return(
         </textarea>
 
         <span>Your tag</span>
-        <textarea 
-            cols="30" rows="2" value={post.tag} required 
-            placeholder="Proompt the AI here..."
-            onChange={(e)=>setPost({...post, tag:e.target.value})}>
-        </textarea>
+        <input 
+            value={post.tag} required
+            placeholder="#tag"
+            onChange={(e)=>setPost({...post, tag:e.target.value})} />
+         
         <Link href='/' className={styles.cancel}>
-        Cancel
+            Cancel
         </Link>
-    </form>    
+
+        <button className={styles.submit} type='submit' disabled={submitting}>{type}</button>
+    </form>
 
 </section>
 )
