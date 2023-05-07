@@ -8,6 +8,9 @@ import { useRouter } from 'next/navigation';
 import Form from '@components/Form';
 
 export default function createPrompt(){
+
+    const {data:session} = useSession();
+    const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({
         prompt:'',
@@ -21,9 +24,14 @@ export default function createPrompt(){
         
         try{
             const response = await fetch('/api/prompt/new',{
-                
+                method:'POST',
+                body:JSON.stringify({
+                    prompt:post.prompt,
+                    userId:session?.user.id,
+                    tag:post.tag
+                })
             });
-
+            console.log("Event Created");
         }catch(e){
             console.log(e);
         }
