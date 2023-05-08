@@ -33,10 +33,10 @@ return(
         width={40}
         height={40}/> 
         
-            <div>
-                <span>{post.creator.email}</span>  
-                <span>{post.creator.username}</span>
-            </div>
+        <div>
+            <span>{post.creator.email}</span>  
+            <span>{post.creator.username}</span>
+        </div>
         
         <Image
             onClick={handleCopy}
@@ -61,10 +61,10 @@ return(
     
     {(post.creator._id === session.user.id) && pathName==='/profile' ? 
     <div className={styles.postActions}>
-        <span onClick={handleEdit}>Edit</span>
-        <span onClick={handleDelete}>Delete</span>
+        <span onClick={()=>handleEdit(post)}>Edit</span>
+        <span onClick={()=>handleDelete(post)}>Delete</span>
     </div> : '' }
-    
+
 </div>
 )
 }

@@ -6,7 +6,8 @@ export default function Profile({name, desc, data,handleEdit, handleDelete}){
     
     const renderPosts = data?.length > 0 ? 
     data.map((post, index)=>{
-        return <PromptCard key={index} post={post} />
+        return <PromptCard handleDelete={handleDelete} handleEdit={handleEdit}
+        key={index} post={post} />
     })
     : <>Looks that there are no posts yet..</>
 
