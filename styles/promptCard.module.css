@@ -32,4 +32,20 @@
 }
 .copy{
     cursor: pointer;
+} 
+div .postActions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.postActions span{
+    cursor: pointer;
+    transform: scale(100%);
+    transition: .2s;
+}
+
+.postActions span:hover{
+    color: cyan;
+    transform: scale(110%);
+    transition: .2s;
 }

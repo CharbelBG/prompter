@@ -11,23 +11,35 @@ export default function PromptCard({post, handleClickTag, handleEdit, handleDele
 
     const {data:session} = useSession();
     const [copied,setCopied] = useState('');
+    const pathName = usePathname();
+    const router = useRouter();
 
+    function handleCopy(){
+        setCopied(post.prompt);
+        navigator.clipboard.writeText(post.prompt);
+        setTimeout(()=>{
+            setCopied("");
+        },3000);
+    }
+     
 return(
 <div className={styles.promptCard}>
 
     <section>
-        <Image 
-            className={styles.profileImg}
-            src={post.creator.image}
-            alt='userimage'
-            width={40}
-            height={40}/>
+    <Image
+        className={styles.profileImg}
+        src={post.creator.image}
+        alt='userimage'
+        width={40}
+        height={40}/> 
+        
             <div>
                 <span>{post.creator.email}</span>  
                 <span>{post.creator.username}</span>
             </div>
         
         <Image
+            onClick={handleCopy}
             className={styles.copy}    
             src={copied === post.prompt ?
                 '/assets/icons/tick.svg' :
@@ -37,8 +49,8 @@ return(
             height={15}
             alt='copy'
         />
-    </section   >
-   
+    </section>
+
     <span>
         {post.prompt}
     </span>
@@ -46,6 +58,13 @@ return(
     <span>
         {post.tag}
     </span>
+    
+    {(post.creator._id === session.user.id) && pathName==='/profile' ? 
+    <div className={styles.postActions}>
+        <span onClick={handleEdit}>Edit</span>
+        <span onClick={handleDelete}>Delete</span>
+    </div> : '' }
+    
 </div>
 )
 }
