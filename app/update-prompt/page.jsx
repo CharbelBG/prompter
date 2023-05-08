@@ -41,7 +41,7 @@ export default function EditPrompt(){
                 })
             });
             console.log("Event Updated");
-            
+
             setSubmitting(false);
         }catch(e){
             console.log(e);
@@ -55,7 +55,7 @@ return(
         post={post} 
         setPost={setPost}
         submitting = {submitting}
-        handleSubmit = {updatePrompt} />
+        handleSubmit = {updatePrompt}/>
 </div>
 )
 }

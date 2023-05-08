@@ -31,7 +31,7 @@ export default function createPrompt(){
                     tag:post.tag
                 })
             });
-            console.log("Event Created");
+             router.push('/profile');
         }catch(e){
             console.log(e);
         }

@@ -25,7 +25,18 @@ export default function ProfilePage(){
     }
 
     async function handleDelete(post){
-
+        const hasConfirmed = confirm('Arou you sure you want to delete this prompt?');
+        if(hasConfirmed){
+            try{
+                await fetch(`/api/prompt/${post._id.toString()}`,{
+                    method:'DELETE',
+                });
+                location.reload();
+            }
+            catch(e){
+                console.log(e);
+            }
+        }
     }
 
 return(
